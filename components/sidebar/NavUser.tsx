@@ -21,7 +21,7 @@ import {
 import { User } from "@/utils/types";
 import Link from "next/link";
 import { socials } from "@/utils/links";
-import { LuFile, LuFileUser } from "react-icons/lu";
+import { LuFile } from "react-icons/lu";
 
 export function NavUser({
   author,
