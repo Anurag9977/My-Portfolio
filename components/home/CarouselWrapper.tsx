@@ -7,6 +7,7 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import CarouselImageContainer from "../carousel/CarouselImageContainer";
 import CarouselCaptionContainer from "../carousel/CarouselCaptionContainer";
 import { CarouselItem } from "@/utils/types";
+import ArrowAnimation from "./ArrowAnimation";
 
 function CarouselWrapper({ carouselItems }: { carouselItems: CarouselItem[] }) {
   const [imageApi, setImageApi] = useState<CarouselApi>();
@@ -92,6 +93,9 @@ function CarouselWrapper({ carouselItems }: { carouselItems: CarouselItem[] }) {
             className="text-white rounded-sm hover:bg-foreground/30 p-2 duration-300"
           />
         </button>
+      </div>
+      <div className="absolute bottom-16 right-1/2">
+        <ArrowAnimation />
       </div>
     </section>
   );
