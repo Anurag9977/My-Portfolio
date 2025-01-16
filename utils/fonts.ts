@@ -3,6 +3,7 @@ import { Dancing_Script } from "next/font/google";
 
 export const dancingScript = Dancing_Script({
   style: "normal",
+  subsets: ["latin"],
   weight: ["400", "500", "600"],
 });
 
