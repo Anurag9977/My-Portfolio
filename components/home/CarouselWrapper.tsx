@@ -41,6 +41,7 @@ function CarouselWrapper({ carouselItems }: { carouselItems: CarouselItem[] }) {
         opts={{
           align: "start",
           loop: true,
+          watchDrag: false,
         }}
         plugins={[imagePlugins.current]}
         setApi={setImageApi}
@@ -57,6 +58,7 @@ function CarouselWrapper({ carouselItems }: { carouselItems: CarouselItem[] }) {
         opts={{
           align: "start",
           loop: true,
+          watchDrag: false,
         }}
         plugins={[captionPlugins.current]}
         setApi={setCaptionApi}
