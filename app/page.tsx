@@ -11,7 +11,6 @@ import {
   getSkills,
   getTopProjects,
 } from "@/utils/actions";
-import { ExperienceCard } from "@/utils/types";
 
 async function RootPage() {
   const carouselItems = await getCarouselItems();

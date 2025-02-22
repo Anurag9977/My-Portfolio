@@ -8,7 +8,6 @@ import {
   BannerItem,
   CarouselItem,
   CertificationCard,
-  ExperienceCard,
   ProjectCard,
   SkillItem,
   User,
@@ -143,7 +142,7 @@ export async function getExperienceDetails():Promise<WorkExperience[]> {
       })
       //  Field heading
       const heading = itemsList[0]?.heading
-      
+
       // Update field items
       fieldItem.heading = heading
       fieldItem.items = itemsList
