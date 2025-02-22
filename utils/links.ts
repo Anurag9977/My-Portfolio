@@ -335,7 +335,7 @@ export const footerItems: FooterItem[] = [
   },
   {
     heading: "address",
-    link: "#",
+    link: process.env.NEXT_PUBLIC_HOME_ADDRESS!,
     icon: LuMapPin,
   },
 ];
@@ -348,7 +348,7 @@ export const socials: FooterItem[] = [
   },
   {
     heading: "linkedin",
-    link: process.env.NEXT_PUBLIC_GITHUB_URL!,
+    link: process.env.NEXT_PUBLIC_LINKEDIN_URL!,
     icon: LuLinkedin,
   },
   {

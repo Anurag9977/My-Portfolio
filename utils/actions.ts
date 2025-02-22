@@ -150,18 +150,6 @@ export async function getExperienceDetails():Promise<WorkExperience[]> {
     }
   }
   return result
-  // return result.items.map((item) => {
-  //   const { heading, position, company, period, description, skills } =
-  //     item.fields;
-  //   return {
-  //     heading: heading as string,
-  //     position: position as string,
-  //     company: company as string,
-  //     period: period as string,
-  //     details: description as string[],
-  //     skills: skills as string[],
-  //   };
-  // });
 }
 
 //GET RESUME LINK
@@ -176,6 +164,7 @@ export async function getResume(): Promise<string> {
 export async function getSkills(): Promise<SkillItem[]> {
   const result = await client.getEntries({
     content_type: "skillItem",
+    order: ['-sys.updatedAt']
   });
   return result.items.map((item) => {
     const { heading, skills } = item.fields;
