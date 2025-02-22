@@ -7,17 +7,21 @@ import {
   CardHeader,
   CardTitle,
 } from "../ui/card";
-import { ExperienceCard } from "@/utils/types";
+import { WorkExperience } from "@/utils/types";
 
-function ExperienceContent({ item }: { item: ExperienceCard }) {
-  const { heading, company, period, position, details, skills } = item;
+function ExperienceContent({ experienceObject }: { experienceObject: WorkExperience }) {
+  const { heading, items } = experienceObject;
   return (
     <section>
       <h1 className="text-xl font-semibold tracking-wide capitalize">
         {heading}
       </h1>
       <Separator className="mt-2" />
-      <Card className="mt-6 shadow-sm">
+      {
+        items.map((item, index) => {
+          const {company, period, position, description, skills} = item;
+          return (
+            <Card key={index} className="mt-4 shadow-sm">
         <CardHeader>
           <CardTitle className="capitalize flex justify-between">
             <span>{company}</span>
@@ -28,11 +32,11 @@ function ExperienceContent({ item }: { item: ExperienceCard }) {
           </CardDescription>
         </CardHeader>
         <CardContent>
-          {details.map((detail, i) => {
+          {description.map((text, i) => {
             return (
               <div key={i} className="flex gap-x-4 my-1">
                 <span className="text-primary font-bold">&#183;</span>
-                <p className="text-justify">{detail}</p>
+                <p className="text-justify">{text}</p>
               </div>
             );
           })}
@@ -46,6 +50,9 @@ function ExperienceContent({ item }: { item: ExperienceCard }) {
           </p>
         </CardFooter>
       </Card>
+      )
+    })
+    }
     </section>
   );
 }

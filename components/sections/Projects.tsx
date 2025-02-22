@@ -15,7 +15,7 @@ function Projects({
     <section id="projects" ref={ref}>
       <SectionWrapper>
         <SectionTitle
-          heading="projects"
+          heading="projects & open source"
           subHeading="My Top Projects listed below with Project Link & Source Code on Github."
           sectionNumber="03."
         />

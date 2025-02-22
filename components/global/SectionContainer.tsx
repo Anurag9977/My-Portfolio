@@ -9,10 +9,10 @@ import {
   About as AboutType,
   BannerItem,
   CertificationCard,
-  ExperienceCard,
   ProjectCard,
   SkillItem,
   VisibleSection,
+  WorkExperience,
 } from "@/utils/types";
 import Skills from "../sections/Skills";
 import Experience from "../sections/Experience";
@@ -21,7 +21,7 @@ import Navbar from "../navbar/Navbar";
 type SectionContainerProps = {
   bannerImages: BannerItem[];
   aboutMe: AboutType;
-  experience: ExperienceCard[];
+  experience: WorkExperience[];
   resume: string;
   projects: ProjectCard[];
   skills: SkillItem[];

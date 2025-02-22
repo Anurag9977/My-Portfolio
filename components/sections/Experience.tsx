@@ -4,7 +4,7 @@ import SectionTitle from "../global/SectionTitle";
 import ExperienceContent from "../experience/ExperienceContent";
 import { Button } from "../ui/button";
 import Link from "next/link";
-import { ExperienceCard } from "@/utils/types";
+import { WorkExperience } from "@/utils/types";
 
 function Experience({
   ref,
@@ -12,20 +12,20 @@ function Experience({
   resume,
 }: {
   ref: RefObject<HTMLDivElement | null>;
-  experience: ExperienceCard[];
+  experience: WorkExperience[];
   resume: string;
 }) {
   return (
     <section id="experience" ref={ref}>
       <SectionWrapper>
         <SectionTitle
-          heading="experience"
+          heading="work experience"
           subHeading="Below is a summary of my work experience and education."
           sectionNumber="02."
         />
         <section className="flex flex-col gap-y-8">
           {experience.map((item, index) => {
-            return <ExperienceContent key={index} item={item} />;
+            return <ExperienceContent key={index} experienceObject={item} />;
           })}
         </section>
         <Button

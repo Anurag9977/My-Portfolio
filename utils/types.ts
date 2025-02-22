@@ -72,9 +72,14 @@ export type ExperienceCard = {
   position: string;
   company: string;
   period: string;
-  details: string[];
+  description: string[];
   skills: string[];
 };
+
+export type WorkExperience = {
+  heading : string,
+  items : ExperienceCard[]
+}
 
 export type FooterItem = {
   heading: string;

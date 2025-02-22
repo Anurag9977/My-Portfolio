@@ -13,6 +13,7 @@ import {
   SkillItem,
   User,
   VisibleSection,
+  WorkExperience,
 } from "./types";
 
 //GET AUTHOR DETAILS
@@ -117,22 +118,51 @@ export async function getAboutMeDetails(): Promise<About> {
 }
 
 //GET EXPERIENCE DETAILS
-export async function getExperienceDetails(): Promise<ExperienceCard[]> {
-  const result = await client.getEntries({
-    content_type: "experience",
+export async function getExperienceDetails():Promise<WorkExperience[]> {
+  const response = await client.getEntries({
+    content_type: "workExperience",
   });
-  return result.items.map((item) => {
-    const { heading, position, company, period, description, skills } =
-      item.fields;
-    return {
-      heading: heading as string,
-      position: position as string,
-      company: company as string,
-      period: period as string,
-      details: description as string[],
-      skills: skills as string[],
-    };
-  });
+
+  let result : WorkExperience[] = []
+
+  const fields = response.items[0].fields
+  for(const key of Object.keys(fields)){
+    if(key !== 'title'){
+      // Initialize field item of type WorkExperience
+      let fieldItem:WorkExperience = {
+        heading : '',
+        items : []
+      }
+
+      // Type assertion for items list which is an array
+      let itemsList = fields[key] as Array<any>
+      
+      // Items List
+      itemsList = itemsList.map((item) => {
+        return item.fields
+      })
+      //  Field heading
+      const heading = itemsList[0]?.heading
+      
+      // Update field items
+      fieldItem.heading = heading
+      fieldItem.items = itemsList
+      result.push(fieldItem)
+    }
+  }
+  return result
+  // return result.items.map((item) => {
+  //   const { heading, position, company, period, description, skills } =
+  //     item.fields;
+  //   return {
+  //     heading: heading as string,
+  //     position: position as string,
+  //     company: company as string,
+  //     period: period as string,
+  //     details: description as string[],
+  //     skills: skills as string[],
+  //   };
+  // });
 }
 
 //GET RESUME LINK
