@@ -187,7 +187,7 @@ export async function getCertificates(): Promise<CertificationCard[]> {
     content_type: "certificate",
   });
   return result.items.map((item) => {
-    const { provider, heading, description, image, link } = item.fields;
+    const { provider, heading, description, link } = item.fields;
     const imageURL = (item.fields.image as Asset)?.fields?.file?.url;
 
     return {
