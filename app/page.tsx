@@ -18,7 +18,7 @@ async function RootPage() {
   const aboutMe = await getAboutMeDetails();
   const experience = await getExperienceDetails();
   const resume = await getResume();
-  const projects = await getTopProjects({ limit: 4 });
+  const projects = await getTopProjects({ limit: 6 });
   const skills = await getSkills();
   const certificates = await getCertificates();
 
