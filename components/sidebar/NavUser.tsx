@@ -97,7 +97,7 @@ export function NavUser({
                     key={index}
                     className="group/social cursor-pointer capitalize"
                   >
-                    <Link href={item.link}>
+                    <Link href={item.link} target="_blank">
                       <item.icon className="group-hover/social:text-primary duration-300" />
                       <span>{item.heading}</span>
                     </Link>
